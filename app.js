@@ -6,6 +6,7 @@ var path = require('path');
 var ffmpeg = require('fluent-ffmpeg');
 var express = require('express');
 var app = express();
+var bodyParser = require('body-parser');
 
 var lastFmApiBaseUrl = 'http://ws.audioscrobbler.com/2.0/?method=artist.gettoptracks&artist=Artist_Name&limit=Limit&api_key=5cfe225d4173261c71b97704dc74031c&format=json';
 var youtubeApi = 'https://www.googleapis.com/youtube/v3/search?part=snippet&q=TrackName&type=video&maxResults=1&key=AIzaSyDOegfItpZ_goZccL_pmREwZoNXoaYZNaw';
@@ -16,27 +17,67 @@ var mp4DirectoryPath = songsPath + 'mp4/';
 var mp3DirectoryPath = songsPath + 'mp3/';
 
 var port = 3000;
-var numOfParallelDownloads = 1;
+var numOfParallelDownloads = 5;
 var tracks = [];
 
+app.use(bodyParser.json());
+var urlencodedParser = bodyParser.urlencoded({ extended: false })
 
-app.get('/topTracks/*/[1-9][0-9]?', function(req, res){
-    createDirectory(songsPath);
-    createDirectory(mp4DirectoryPath);
-    createDirectory(mp3DirectoryPath);
+app.get('/v1/*', function(req, res){
+    var request = req.url.split('/')[2];
 
-    var artist = req.url.split('/')[2];
-    var limit = req.url.split('/')[3];
-    createDirectory(mp3DirectoryPath + '/' + artist);
+    switch(request){
+        case 'topTracks':
+            var artist = req.url.split('/')[3].replace('%20', ' ');
+            var limit = req.url.split('/')[4];
+            if(!validateLimit){
+                limit = 50;
+            }
 
-    try{
-        lastFmApi(artist, limit);
-        res.status(200).send('artist: ' + artist + ', limit: ' + limit);
+            InitializeDirectories(artist);
+
+            try{
+                lastFmApi(artist, limit);
+                res.status(200).send('artist: ' + artist + ', limit: ' + limit);
+            }
+            catch(err){
+                res.status(404).send();
+            }
+            break;
+
+        case 'getTracksArray':
+            res.status(200).send(tracks);
+            break;
+        default:
+            res.status(404).send();
+            break;
     }
-    catch(err){
-        res.status(404).send();
+
+});
+
+app.post('/v1/*', urlencodedParser , function(req, res){
+    var request = req.url.split('/')[2];
+
+    switch(request){
+        case 'tracksArray':
+            InitializeDirectories(req.body.artist);
+            tracks.push(req.body);
+            run();
+            res.status(200).send();
+            break;
+
+        default:
+            res.status(404).send();
     }
-})
+});
+
+function validateLimit(limit){
+    if(limit > 0 && limit <=50){
+        return true;
+    }
+    return false;
+}
+
 
 app.listen(port, function(){
     console.log('listening on', port)
@@ -46,23 +87,47 @@ function lastFmApi(artist, limit){
     var lastFmApiInfo = lastFmApiBaseUrl.replace('Artist_Name', artist).replace('Limit', limit.toString());
     request(lastFmApiInfo, function(error, response, body){
         if(!error){
-            var isRunning = !(tracks.length == 0);
-            tracks = tracks.concat(JSON.parse(body).toptracks.track);
+            // var isRunning = !(tracks.length == 0);
 
-            if(!isRunning){
-                for(var i = 0; i < numOfParallelDownloads; i++){
-                    if(tracks.length > 0){
-                        youtubeApiRequest(artist, tracks.shift().name);
-                    }
-                }
+            var trackNames = [];
+            for(var i = 0; i < JSON.parse(body).toptracks.track.length; i++){
+                // console.log('trackName:', JSON.parse(body).toptracks.track[i].name);
+                trackNames.push(JSON.parse(body).toptracks.track[i].name);
             }
+            tracks.push({artist: artist, tracks: trackNames})
+            // if(!isRunning){
+                run();
+            // }
+
         }
     });
 }
 
+function run(){
+    // for(var i = 0; i < numOfParallelDownloads; i++){
+    while(numOfParallelDownloads > 0 && tracks.length > 0)
+    {
+        if(tracks[0].tracks.length > 0){
+            numOfParallelDownloads--;
+            youtubeApiRequest(tracks[0].artist, tracks[0].tracks.shift());
+        }
+        else{
+            tracks.shift();
+            // i--; // if i don't do that, the number of parallel downloads will decrease
+        }
+    }
+        // if(tracks.length > 0){
+        // }
+    // }
+}
 
 function youtubeApiRequest(artist, trackName){
-    name = artist + ' - ' + trackName + ' lyrics';
+    name = artist + ' - ' + trackName;
+    if((artist[0] >= 'a' && artist[0] <='z') ||
+        artist[0] >= 'A' && artist[0] <='Z') {
+        name += ' lyrics';
+    }
+
     var youtubeApiInfo = youtubeApi.replace('TrackName', name);
     var videoId = 0;
     request(youtubeApiInfo, function(err, res, bod){
@@ -77,9 +142,20 @@ function downloadSong(artist, trackName, videoId){
     ytdl(youtubeBaseUrl + videoId)
         .pipe(fs.createWriteStream(mp4DirectoryPath + artist + ' - ' + trackName + '.mp4'))
         .on('finish', function () {
+            numOfParallelDownloads++;
             console.log('finished:', trackName);
             if(tracks.length > 0){
-                youtubeApiRequest(artist, tracks.shift().name);
+                if(tracks[0].tracks.length > 0){
+                    numOfParallelDownloads--;
+                    youtubeApiRequest(tracks[0].artist, tracks[0].tracks.shift());
+                }
+                else{
+                    tracks.shift();
+                    if(tracks.length > 0){
+                        numOfParallelDownloads--;
+                        youtubeApiRequest(tracks[0].artist, tracks[0].tracks.shift()/*.name*/);
+                    }
+                }
             }
             convert(mp4DirectoryPath + artist + ' - ' + trackName + '.mp4', mp3DirectoryPath + artist + '/' + artist + ' - ' + trackName + '.mp3', function(file, error){
                 if(!error){
@@ -103,6 +179,13 @@ function convert(input, output, callback){
         }).on('error', function(input, err){
         callback(err);
     }).run();
+}
+
+function InitializeDirectories(artist){
+    createDirectory(songsPath);
+    createDirectory(mp4DirectoryPath);
+    createDirectory(mp3DirectoryPath);
+    createDirectory(mp3DirectoryPath + '/' + artist);
 }
 
 function createDirectory(path){
