@@ -21,6 +21,26 @@ var numOfParallelDownloads = 5;
 var tracks = [];
 
 app.use(bodyParser.json());
+
+app.use(function (req, res, next) {
+
+    // Website you wish to allow to connect
+    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:63342');
+
+    // Request methods you wish to allow
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+
+    // Request headers you wish to allow
+    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+
+    // Set to true if you need the website to include cookies in the requests sent
+    // to the API (e.g. in case you use sessions)
+    res.setHeader('Access-Control-Allow-Credentials', true);
+
+    // Pass to next layer of middleware
+    next();
+});
+
 var urlencodedParser = bodyParser.urlencoded({ extended: false })
 
 app.get('/v1/*', function(req, res){
@@ -45,6 +65,24 @@ app.get('/v1/*', function(req, res){
             }
             break;
 
+        case 'track':
+            var artist = req.url.split('/')[3].replace('%20', ' ');
+            var trackName = req.url.split('/')[4].replace('%20', ' ');
+            InitializeDirectories(artist);
+            var trackArray = [];
+            trackArray.push(trackName);
+
+            try{
+                tracks.push({artist: artist, tracks: trackArray});
+                run();
+                res.status(200).send();
+            }
+            catch(err){
+                res.status(404).send();
+            }
+
+            break;
+i
         case 'getTracksArray':
             res.status(200).send(tracks);
             break;
@@ -91,14 +129,10 @@ function lastFmApi(artist, limit){
 
             var trackNames = [];
             for(var i = 0; i < JSON.parse(body).toptracks.track.length; i++){
-                // console.log('trackName:', JSON.parse(body).toptracks.track[i].name);
                 trackNames.push(JSON.parse(body).toptracks.track[i].name);
             }
-            tracks.push({artist: artist, tracks: trackNames})
-            // if(!isRunning){
-                run();
-            // }
-
+            tracks.push({artist: artist, tracks: trackNames});
+            run();
         }
     });
 }
