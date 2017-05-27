@@ -48,7 +48,7 @@ app.get('/v1/*', function(req, res){
 
     switch(request){
         case 'topTracks':
-            var artist = req.url.split('/')[3].replace('%20', ' ');
+            var artist = req.url.split('/')[3].split('%20').join(' ');
             var limit = req.url.split('/')[4];
             if(!validateLimit){
                 limit = 50;
@@ -58,7 +58,7 @@ app.get('/v1/*', function(req, res){
 
             try{
                 lastFmApi(artist, limit);
-                res.status(200).send('artist: ' + artist + ', limit: ' + limit);
+                res.status(200).send();
             }
             catch(err){
                 res.status(404).send();
@@ -66,8 +66,8 @@ app.get('/v1/*', function(req, res){
             break;
 
         case 'track':
-            var artist = req.url.split('/')[3].replace('%20', ' ');
-            var trackName = req.url.split('/')[4].replace('%20', ' ');
+            var artist = req.url.split('/')[3].split('%20').join(' ');
+            var trackName = req.url.split('/')[4].split('%20').join(' ');
             InitializeDirectories(artist);
             var trackArray = [];
             trackArray.push(trackName);
