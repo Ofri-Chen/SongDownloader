@@ -50,6 +50,12 @@ app.get('/v1/*', function(req, res){
         case 'topTracks':
             var artist = req.url.split('/')[3].split('%20').join(' ');
             var limit = req.url.split('/')[4];
+            var lyrics = true;
+            if(req.url.length >= 5){
+                if(req.url.split('/')[5] == 'noLyrics'){
+                    lyrics = false;
+                }
+            }
             if(!validateLimit){
                 limit = 50;
             }
@@ -57,7 +63,7 @@ app.get('/v1/*', function(req, res){
             InitializeDirectories(artist);
 
             try{
-                lastFmApi(artist, limit);
+                lastFmApi(artist, limit, lyrics);
                 res.status(200).send();
             }
             catch(err){
@@ -72,9 +78,17 @@ app.get('/v1/*', function(req, res){
             var trackArray = [];
             trackArray.push(trackName);
 
+            var lyrics = true;
+            if(req.url.length >= 5){
+                if(req.url.split('/')[5] == 'noLyrics'){
+                    console.log('noLyrics');
+                    lyrics = false;
+                }
+            }
+
             try{
                 tracks.push({artist: artist, tracks: trackArray});
-                run();
+                run(lyrics);
                 res.status(200).send();
             }
             catch(err){
@@ -82,7 +96,7 @@ app.get('/v1/*', function(req, res){
             }
 
             break;
-i
+
         case 'getTracksArray':
             res.status(200).send(tracks);
             break;
@@ -98,9 +112,17 @@ app.post('/v1/*', urlencodedParser , function(req, res){
 
     switch(request){
         case 'tracksArray':
+            var lyrics = true;
+            if(req.url.length >= 3){
+                if(req.url.split('/')[3] == 'noLyrics'){
+                    console.log('noLyrics');
+                    lyrics = false;
+                }
+            }
+
             InitializeDirectories(req.body.artist);
             tracks.push(req.body);
-            run();
+            run(lyrics);
             res.status(200).send();
             break;
 
@@ -121,7 +143,7 @@ app.listen(port, function(){
     console.log('listening on', port)
 })
 
-function lastFmApi(artist, limit){
+function lastFmApi(artist, limit, lyrics){
     var lastFmApiInfo = lastFmApiBaseUrl.replace('Artist_Name', artist).replace('Limit', limit.toString());
     request(lastFmApiInfo, function(error, response, body){
         if(!error){
@@ -132,18 +154,18 @@ function lastFmApi(artist, limit){
                 trackNames.push(JSON.parse(body).toptracks.track[i].name);
             }
             tracks.push({artist: artist, tracks: trackNames});
-            run();
+            run(lyrics);
         }
     });
 }
 
-function run(){
+function run(lyrics){
     // for(var i = 0; i < numOfParallelDownloads; i++){
     while(numOfParallelDownloads > 0 && tracks.length > 0)
     {
         if(tracks[0].tracks.length > 0){
             numOfParallelDownloads--;
-            youtubeApiRequest(tracks[0].artist, tracks[0].tracks.shift());
+            youtubeApiRequest(tracks[0].artist, tracks[0].tracks.shift(), lyrics);
         }
         else{
             tracks.shift();
@@ -155,11 +177,14 @@ function run(){
     // }
 }
 
-function youtubeApiRequest(artist, trackName){
+function youtubeApiRequest(artist, trackName, lyrics){
+    console.log('lyrics:', lyrics);
     name = artist + ' - ' + trackName;
     if((artist[0] >= 'a' && artist[0] <='z') ||
         artist[0] >= 'A' && artist[0] <='Z') {
-        name += ' lyrics';
+        if(lyrics){
+            name += ' lyrics';
+        }
     }
 
     var youtubeApiInfo = youtubeApi.replace('TrackName', name);
