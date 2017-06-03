@@ -1,3 +1,6 @@
+var process = require('process');
+process.env.FFMPEG_PATH = './node_modules/ffmpeg/bin/ffmpeg.exe';
+
 var request = require('request');
 var ytdl = require('ytdl-core');
 var fs = require('fs');
@@ -7,12 +10,13 @@ var ffmpeg = require('fluent-ffmpeg');
 var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
+var ffmetadata = require('ffmetadata');
 
 var lastFmApiBaseUrl = 'http://ws.audioscrobbler.com/2.0/?method=artist.gettoptracks&artist=Artist_Name&limit=Limit&api_key=5cfe225d4173261c71b97704dc74031c&format=json';
 var youtubeApi = 'https://www.googleapis.com/youtube/v3/search?part=snippet&q=TrackName&type=video&maxResults=1&key=AIzaSyDOegfItpZ_goZccL_pmREwZoNXoaYZNaw';
 var youtubeBaseUrl = 'https://www.youtube.com/watch?v=';
 
-var songsPath = './Songs/'
+var songsPath = './Songs/';
 var mp4DirectoryPath = songsPath + 'mp4/';
 var mp3DirectoryPath = songsPath + 'mp3/';
 
@@ -24,24 +28,18 @@ app.use(bodyParser.json());
 
 app.use(function (req, res, next) {
 
-    // Website you wish to allow to connect
     res.setHeader('Access-Control-Allow-Origin', 'http://localhost:63342');
 
-    // Request methods you wish to allow
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
 
-    // Request headers you wish to allow
     res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
 
-    // Set to true if you need the website to include cookies in the requests sent
-    // to the API (e.g. in case you use sessions)
     res.setHeader('Access-Control-Allow-Credentials', true);
 
-    // Pass to next layer of middleware
     next();
 });
 
-var urlencodedParser = bodyParser.urlencoded({ extended: false })
+var urlencodedParser = bodyParser.urlencoded({ extended: false });
 
 app.get('/v1/*', function(req, res){
     var request = req.url.split('/')[2];
@@ -141,7 +139,7 @@ function validateLimit(limit){
 
 app.listen(port, function(){
     console.log('listening on', port)
-})
+});
 
 function lastFmApi(artist, limit, lyrics){
     var lastFmApiInfo = lastFmApiBaseUrl.replace('Artist_Name', artist).replace('Limit', limit.toString());
@@ -216,9 +214,12 @@ function downloadSong(artist, trackName, videoId){
                     }
                 }
             }
-            convert(mp4DirectoryPath + artist + ' - ' + trackName + '.mp4', mp3DirectoryPath + artist + '/' + artist + ' - ' + trackName + '.mp3', function(file, error){
+            var mp4FilePath = mp4DirectoryPath + artist + ' - ' + trackName + '.mp4';
+            var mp3FilePath = mp3DirectoryPath + artist + '/' + artist + ' - ' + trackName + '.mp3';
+            convert(mp4FilePath, mp3FilePath, function(mp4File, mp3File, error){
                 if(!error){
-                    fs.unlink(file);
+                    fs.unlink(mp4File);
+                    injectMetadata(mp3File);
                     // console.log(file);
                 }
                 else{
@@ -230,15 +231,37 @@ function downloadSong(artist, trackName, videoId){
 
 function convert(input, output, callback){
     ffmpeg(input)
-        .setFfmpegPath("./node_modules/ffmpeg/bin/ffmpeg.exe")
+        .setFfmpegPath(process.env.FFMPEG_PATH)
         .output(output)
         .on('end', function(){
             console.log('conversion ended', output);
-            callback(input);
+            callback(input, output);
         }).on('error', function(input, err){
         callback(err);
     }).run();
 }
+
+// injectMetadata("C:/Users/ofric/Desktop/SongDownloader/Songs/mp3/Metallica/Metallica - Fuel - Test.mp3", 'Metallica', 'Fuela');
+
+// function injectMetadata(file, artist, trackName){
+//     var data = {
+//         album: "Reload",
+//         artist: artist,
+//         name: trackName
+//     };
+//     ffmetadata.write(file, data, function(err) {
+//         if (err){
+//             console.error("Error writing metadata", err);
+//         }
+//         else console.log("Data written");
+//     });
+//
+//     // ffmetadata.read(file, function(err, data) {
+//     // if (err) console.error("Error reading metadata", err);
+//     // else console.log(data);
+// // });
+//
+// }
 
 function InitializeDirectories(artist){
     createDirectory(songsPath);
