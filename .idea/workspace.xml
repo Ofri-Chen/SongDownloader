@@ -2,7 +2,47 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1ff24f65-36b7-4f9b-a415-0a7600c82c19" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/VideoDownloader_node_modules.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Songs/mp3/Metallica/AlbumArtSmall.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Songs/mp3/Metallica/AlbumArt_{0B6BE3A3-9D5D-488B-8802-69C8D696E85F}_Large.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Songs/mp3/Metallica/AlbumArt_{0B6BE3A3-9D5D-488B-8802-69C8D696E85F}_Small.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Songs/mp3/Metallica/AlbumArt_{0C9268BC-437E-4160-9068-A9903CA929AC}_Large.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Songs/mp3/Metallica/AlbumArt_{0C9268BC-437E-4160-9068-A9903CA929AC}_Small.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Songs/mp3/Metallica/AlbumArt_{37A0C6A2-FE4A-40F4-8E27-42E526A89D51}_Large.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Songs/mp3/Metallica/AlbumArt_{37A0C6A2-FE4A-40F4-8E27-42E526A89D51}_Small.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Songs/mp3/Metallica/AlbumArt_{64D5B409-6C55-4313-8E28-FEDD3D3F0E22}_Large.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Songs/mp3/Metallica/AlbumArt_{64D5B409-6C55-4313-8E28-FEDD3D3F0E22}_Small.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Songs/mp3/Metallica/AlbumArt_{A6F010AD-49CE-4654-94A1-F1B7B7CA8583}_Large.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Songs/mp3/Metallica/AlbumArt_{A6F010AD-49CE-4654-94A1-F1B7B7CA8583}_Small.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Songs/mp3/Metallica/AlbumArt_{E86D6B8F-190E-4424-915B-93283BAC52F0}_Large.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Songs/mp3/Metallica/AlbumArt_{E86D6B8F-190E-4424-915B-93283BAC52F0}_Small.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Songs/mp3/Metallica/Folder.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Songs/mp3/Metallica/Metallica - Battery.mp3" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Songs/mp3/Metallica/Metallica - Creeping Death.mp3" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Songs/mp3/Metallica/Metallica - Enter Sandman.mp3" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Songs/mp3/Metallica/Metallica - Fade to Black.mp3" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Songs/mp3/Metallica/Metallica - For Whom the Bell Tolls.mp3" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Songs/mp3/Metallica/Metallica - Fuel.mp3" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Songs/mp3/Metallica/Metallica - Holier Than Thou.mp3" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Songs/mp3/Metallica/Metallica - Master of Puppets.mp3" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Songs/mp3/Metallica/Metallica - Nothing Else Matters.mp3" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Songs/mp3/Metallica/Metallica - Of Wolf and Man.mp3" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Songs/mp3/Metallica/Metallica - One.mp3" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Songs/mp3/Metallica/Metallica - Sad but True.mp3" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Songs/mp3/Metallica/Metallica - The Day That Never Comes.mp3" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Songs/mp3/Metallica/Metallica - The Memory Remains.mp3" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Songs/mp3/Metallica/Metallica - The Thing That Should Not Be.mp3" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Songs/mp3/Metallica/Metallica - The Unforgiven II.mp3" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Songs/mp3/Metallica/Metallica - The Unforgiven.mp3" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Songs/mp3/Metallica/Metallica - Welcome Home (Sanitarium).mp3" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Songs/mp3/Metallica/Metallica - Wherever I May Roam.mp3" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Songs/mp3/Metallica/Metallica - Whiskey in the Jar.mp3" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Songs/mp3/Metallica/desktop.ini" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/VideoConverter/.idea/jsLibraryMappings.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/VideoConverter/.idea/workspace.xml" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/VideoDownloader.iml" afterPath="$PROJECT_DIR$/.idea/VideoDownloader.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.js" afterPath="$PROJECT_DIR$/app.js" />
     </list>
@@ -30,18 +70,31 @@
       <file leaf-file-name="app.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="638">
-              <caret line="232" column="17" selection-start-line="232" selection-start-column="17" selection-end-line="232" selection-end-column="17" />
+            <state relative-caret-position="398">
+              <caret line="315" column="26" lean-forward="false" selection-start-line="315" selection-start-column="26" selection-end-line="315" selection-end-column="26" />
+              <folding>
+                <element signature="e#1865#3566#0" expanded="false" />
+                <element signature="e#3625#4217#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../SongDownloaderUI/app/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="374">
+              <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../MetadataTest/app.js">
+        <entry file="file://$PROJECT_DIR$/../SongDownloaderUI/app/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="15" column="19" selection-start-line="15" selection-start-column="19" selection-end-line="15" selection-end-column="19" />
+            <state relative-caret-position="2210">
+              <caret line="130" column="53" lean-forward="false" selection-start-line="130" selection-start-column="53" selection-end-line="130" selection-end-column="53" />
               <folding />
             </state>
           </provider>
@@ -55,6 +108,35 @@
         <option value="JavaScript File" />
       </list>
     </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>metadata</find>
+      <find>lastFmApiBaseUrl</find>
+      <find>metada</find>
+      <find>url</find>
+      <find>body</find>
+      <find>lastFmApiKey</find>
+      <find>file</find>
+      <find>mp3File</find>
+      <find>image:</find>
+      <find>reques</find>
+      <find>request</find>
+      <find>http</find>
+      <find>injectmeta</find>
+      <find>\</find>
+      <find>image</find>
+      <find>downloadso</find>
+      <find>pipe</find>
+      <find>tracksarray</find>
+      <find>tracksArray</find>
+      <find>downloadtracks</find>
+      <find>downloadTracksRoute</find>
+      <find>unlink</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>/</replace>
+    </replaceStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -75,21 +157,14 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
+  <component name="NodeModulesDirectoryManager">
+    <handled-path value="$PROJECT_DIR$/node_modules" />
+  </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
     <option name="width" value="1696" />
     <option name="height" value="1026" />
-  </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
-    <OptionsSetting value="true" id="Add" />
-    <OptionsSetting value="true" id="Remove" />
-    <OptionsSetting value="true" id="Checkout" />
-    <OptionsSetting value="true" id="Update" />
-    <OptionsSetting value="true" id="Status" />
-    <OptionsSetting value="true" id="Edit" />
-    <ConfirmationsSetting value="0" id="Add" />
-    <ConfirmationsSetting value="0" id="Remove" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -113,15 +188,22 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="HbShouldOpenHtmlAsHb" value="" />
     <property name="js-jscs-nodeInterpreter" value="C:\Users\ofric\Desktop\Programming\Web\Nodejs\node.exe" />
-    <property name="settings.editor.selected.configurable" value="settings.nodejs" />
-    <property name="settings.editor.splitter.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="project.propDebugger" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
   </component>
   <component name="RunManager" selected="Node.js.app.js">
     <configuration default="false" name="app.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" path-to-node="$USER_HOME$/Programming/Web/Nodejs/node" path-to-js-file="app.js" working-dir="$PROJECT_DIR$">
-      <profiling v8-profiler-path="" />
-      <EXTENSION ID="com.jetbrains.nodejs.run.NodeJSProfilingRunConfigurationExtension">
-        <profiling v8-profiler-path="" />
-      </EXTENSION>
       <method />
     </configuration>
     <configuration default="true" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application">
@@ -130,7 +212,20 @@
     <configuration default="true" type="DartTestRunConfigurationType" factoryName="Dart Test">
       <method />
     </configuration>
+    <configuration default="true" type="JavaScriptTestRunnerJest" factoryName="Jest">
+      <node-interpreter value="project" />
+      <working-dir value="" />
+      <envs />
+      <scope-kind value="ALL" />
+      <method />
+    </configuration>
     <configuration default="true" type="JavaScriptTestRunnerKarma" factoryName="Karma">
+      <config-file value="" />
+      <node-interpreter value="project" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavaScriptTestRunnerProtractor" factoryName="Protractor">
       <config-file value="" />
       <node-interpreter value="project" />
       <envs />
@@ -158,7 +253,7 @@
       <method />
     </configuration>
     <configuration default="true" type="js.build_tools.npm" factoryName="npm">
-      <command value="run-script" />
+      <command value="run" />
       <scripts />
       <node-interpreter value="project" />
       <envs />
@@ -203,21 +298,41 @@
       <workItem from="1494693628062" duration="10939000" />
       <workItem from="1496484138585" duration="4515000" />
       <workItem from="1496493907433" duration="4289000" />
+      <workItem from="1497611506153" duration="727000" />
+      <workItem from="1497629248406" duration="1556000" />
+      <workItem from="1497631065675" duration="1642000" />
+      <workItem from="1497692453222" duration="1950000" />
+      <workItem from="2223540875578" duration="2501000" />
+      <workItem from="1497696999348" duration="901000" />
+      <workItem from="1497701722167" duration="1787000" />
+      <workItem from="1497703532648" duration="1794000" />
+      <workItem from="1497705364919" duration="2034000" />
+      <workItem from="1497710717887" duration="1857000" />
+      <workItem from="1497712614695" duration="908000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="20716000" />
+    <option name="totallyTimeSpent" value="38373000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1696" height="1026" extended-state="7" />
+    <frame x="-8" y="-8" width="1696" height="1026" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32969433" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32969433" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296582" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33296582" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -230,6 +345,9 @@
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="processedProjectFiles" value="true" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -262,7 +380,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="5" />
+      <option name="time" value="6" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -270,7 +388,45 @@
     <entry file="file://$PROJECT_DIR$/app.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#1865#3566#0" expanded="false" />
+            <element signature="e#3625#4217#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../SongDownloaderUI/app/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../SongDownloaderUI/app/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2210">
+          <caret line="130" column="53" lean-forward="false" selection-start-line="130" selection-start-column="53" selection-end-line="130" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2074">
+          <caret line="122" column="39" lean-forward="false" selection-start-line="122" selection-start-column="39" selection-end-line="122" selection-end-column="39" />
+          <folding>
+            <element signature="e#1865#3566#0" expanded="false" />
+            <element signature="e#3625#4217#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../SongDownloaderUI/app/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2210">
+          <caret line="130" column="53" lean-forward="true" selection-start-line="130" selection-start-column="53" selection-end-line="130" selection-end-column="53" />
           <folding />
         </state>
       </provider>
@@ -278,8 +434,121 @@
     <entry file="file://$PROJECT_DIR$/app.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#1865#3566#0" expanded="false" />
+            <element signature="e#3625#4217#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#1865#3566#0" expanded="false" />
+            <element signature="e#3625#4217#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#1865#3566#0" expanded="false" />
+            <element signature="e#3625#4217#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#1865#3566#0" expanded="false" />
+            <element signature="e#3625#4217#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#1865#3566#0" expanded="false" />
+            <element signature="e#3625#4217#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#1865#3566#0" expanded="false" />
+            <element signature="e#3625#4217#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#1865#3566#0" expanded="false" />
+            <element signature="e#3625#4217#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#1865#3566#0" expanded="false" />
+            <element signature="e#3625#4217#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#1865#3566#0" expanded="false" />
+            <element signature="e#3625#4217#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#1865#3566#0" expanded="false" />
+            <element signature="e#3625#4217#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#1865#3566#0" expanded="false" />
+            <element signature="e#3625#4217#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -288,36 +557,35 @@
     <entry file="file://$PROJECT_DIR$/node_modules/ytdl-core/lib/sig.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
-          <caret line="112" column="4" selection-start-line="112" selection-start-column="4" selection-end-line="112" selection-end-column="4" />
+          <caret line="112" column="4" lean-forward="false" selection-start-line="112" selection-start-column="4" selection-end-line="112" selection-end-column="4" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/node_modules/ytdl-core/lib/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="433">
-          <caret line="58" column="9" selection-start-line="58" selection-start-column="9" selection-end-line="58" selection-end-column="9" />
-          <folding />
+          <caret line="58" column="9" lean-forward="false" selection-start-line="58" selection-start-column="9" selection-end-line="58" selection-end-column="9" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/node_modules/youtube-audio-stream/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="365">
-          <caret line="23" column="29" selection-start-line="23" selection-start-column="29" selection-end-line="23" selection-end-column="29" />
+          <caret line="23" column="29" lean-forward="false" selection-start-line="23" selection-start-column="29" selection-end-line="23" selection-end-column="29" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/node_modules/musicmetadata/example/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1139">
-          <caret line="67" column="11" selection-start-line="67" selection-start-column="11" selection-end-line="67" selection-end-column="11" />
+          <caret line="67" column="11" lean-forward="false" selection-start-line="67" selection-start-column="11" selection-end-line="67" selection-end-column="11" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/node_modules/fluent-ffmpeg/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -325,42 +593,49 @@
     <entry file="file://$PROJECT_DIR$/node_modules/ffmpeg/lib/configs.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/node_modules/ffmpeg/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
-          <caret line="0" column="41" selection-start-line="0" selection-start-column="41" selection-end-line="0" selection-end-column="41" />
-          <folding />
+          <caret line="0" column="41" lean-forward="false" selection-start-line="0" selection-start-column="41" selection-end-line="0" selection-end-column="41" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/node_modules/ffmetadata/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
-          <caret line="7" column="37" selection-start-line="7" selection-start-column="37" selection-end-line="7" selection-end-column="37" />
-          <folding>
-            <element signature="n#!!doc" expanded="false" />
-          </folding>
+          <caret line="7" column="37" lean-forward="false" selection-start-line="7" selection-start-column="37" selection-end-line="7" selection-end-column="37" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../MetadataTest/app.js">
+    <entry file="file://$PROJECT_DIR$/../MetadataTest/app.js" />
+    <entry file="file://$PROJECT_DIR$/../SongDownloaderUI/app/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="19" selection-start-line="15" selection-start-column="19" selection-end-line="15" selection-end-column="19" />
+        <state relative-caret-position="374">
+          <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../SongDownloaderUI/app/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2210">
+          <caret line="130" column="53" lean-forward="false" selection-start-line="130" selection-start-column="53" selection-end-line="130" selection-end-column="53" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="638">
-          <caret line="232" column="17" selection-start-line="232" selection-start-column="17" selection-end-line="232" selection-end-column="17" />
-          <folding />
+        <state relative-caret-position="398">
+          <caret line="315" column="26" lean-forward="false" selection-start-line="315" selection-start-column="26" selection-end-line="315" selection-end-column="26" />
+          <folding>
+            <element signature="e#1865#3566#0" expanded="false" />
+            <element signature="e#3625#4217#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -2,6 +2,7 @@ var process = require('process');
 process.env.FFMPEG_PATH = './node_modules/ffmpeg/bin/ffmpeg.exe';
 
 var request = require('request');
+var http = require('http');
 var ytdl = require('ytdl-core');
 var fs = require('fs');
 var q = require('q');
@@ -11,8 +12,17 @@ var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
 var ffmetadata = require('ffmetadata');
+var nodeID3 = require('node-id3');
 
-var lastFmApiBaseUrl = 'http://ws.audioscrobbler.com/2.0/?method=artist.gettoptracks&artist=Artist_Name&limit=Limit&api_key=5cfe225d4173261c71b97704dc74031c&format=json';
+// var lastFmApiBaseUrl = 'http://ws.audioscrobbler.com/2.0/?method=artist.gettoptracks&artist=Artist_Name&limit=Limit&api_key=5cfe225d4173261c71b97704dc74031c&format=json';
+var lastFmApiKey = 'api_key=5cfe225d4173261c71b97704dc74031c';
+var lastFmApiBaseUrl = 'http://ws.audioscrobbler.com/2.0/?method=';
+var lastFmRoutes = {
+    getTopTracks: 'artist.gettoptracks&artist=Artist_Name&limit=Limit',
+    getTrackInfo: 'track.getInfo&artist=Artist_Name&track=Track_Name'
+};
+var jsonFormat = 'format=json';
+
 var youtubeApi = 'https://www.googleapis.com/youtube/v3/search?part=snippet&q=TrackName&type=video&maxResults=1&key=AIzaSyDOegfItpZ_goZccL_pmREwZoNXoaYZNaw';
 var youtubeBaseUrl = 'https://www.youtube.com/watch?v=';
 
@@ -27,8 +37,7 @@ var tracks = [];
 app.use(bodyParser.json());
 
 app.use(function (req, res, next) {
-
-    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:63342');
+    res.setHeader('Access-Control-Allow-Origin', '*');
 
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
 
@@ -107,6 +116,7 @@ app.get('/v1/*', function(req, res){
 
 app.post('/v1/*', urlencodedParser , function(req, res){
     var request = req.url.split('/')[2];
+    console.log('tracksArray');
 
     switch(request){
         case 'tracksArray':
@@ -142,7 +152,9 @@ app.listen(port, function(){
 });
 
 function lastFmApi(artist, limit, lyrics){
-    var lastFmApiInfo = lastFmApiBaseUrl.replace('Artist_Name', artist).replace('Limit', limit.toString());
+    // var lastFmApiInfo = lastFmApiBaseUrl.replace('Artist_Name', artist).replace('Limit', limit.toString());
+    var method = lastFmRoutes.getTopTracks.replace('Artist_Name', artist).replace('Limit', limit.toString());
+    var lastFmApiInfo = lastFmApiBaseUrl + method + '&' + lastFmApiKey + '&' + jsonFormat;
     request(lastFmApiInfo, function(error, response, body){
         if(!error){
             // var isRunning = !(tracks.length == 0);
@@ -196,8 +208,9 @@ function youtubeApiRequest(artist, trackName, lyrics){
 
 function downloadSong(artist, trackName, videoId){
     console.log(trackName);
+    var path = mp4DirectoryPath + artist + ' - ' + trackName + '.mp4';
     ytdl(youtubeBaseUrl + videoId)
-        .pipe(fs.createWriteStream(mp4DirectoryPath + artist + ' - ' + trackName + '.mp4'))
+        .pipe(fs.createWriteStream(path))
         .on('finish', function () {
             numOfParallelDownloads++;
             console.log('finished:', trackName);
@@ -219,7 +232,7 @@ function downloadSong(artist, trackName, videoId){
             convert(mp4FilePath, mp3FilePath, function(mp4File, mp3File, error){
                 if(!error){
                     fs.unlink(mp4File);
-                    injectMetadata(mp3File);
+                    handleMetadata(artist, trackName, mp3File);
                     // console.log(file);
                 }
                 else{
@@ -241,27 +254,114 @@ function convert(input, output, callback){
     }).run();
 }
 
-// injectMetadata("C:/Users/ofric/Desktop/SongDownloader/Songs/mp3/Metallica/Metallica - Fuel - Test.mp3", 'Metallica', 'Fuela');
 
-// function injectMetadata(file, artist, trackName){
-//     var data = {
-//         album: "Reload",
-//         artist: artist,
-//         name: trackName
-//     };
-//     ffmetadata.write(file, data, function(err) {
-//         if (err){
-//             console.error("Error writing metadata", err);
-//         }
-//         else console.log("Data written");
-//     });
-//
-//     // ffmetadata.read(file, function(err, data) {
-//     // if (err) console.error("Error reading metadata", err);
-//     // else console.log(data);
-// // });
-//
-// }
+function handleMetadata(artist, trackName, path){
+    obtainMetadata(artist, trackName, function(data){
+        parseMetadata(data, function(error, album, date, title, genre, artist, image){
+            if(error){
+                return;
+            }
+            var imagePath = path.replace('.mp3', '.png');
+            downloadImage(imagePath, image, function(){
+                injectMetadata(path, album, date, title, genre, artist, imagePath);
+            })
+        })
+    })
+}
+
+// injectMetadata('C:/Users/ofric/Desktop/Programming/SongDownloader/Songs/mp3/Metallica/Metallica - Enter Sandman.mp3', 'album', 'date', 'title', 'genre', 'artist', './Songs/mp3/Metallica/Metallica - Fuel.png')
+
+function injectMetadata(path, album, date, title, genre, artist, image) {
+    console.log('imagePath:', image);
+    var tags = {
+        title: title,
+        artist: artist,
+        album: album,
+        date: date,
+        genre: genre,
+        image: image
+    };
+
+    nodeID3.write(tags, path);
+    deleteImage(path.replace('.mp3', '.png'));
+    // ffmetadata.read(path, function (err, data) {
+    //     if (err) console.error("Error reading metadata", err);
+    //     else console.log(data);
+    // });
+}
+
+function obtainMetadata(artist, trackName, callback){
+    var url = lastFmApiBaseUrl + lastFmRoutes.getTrackInfo + '&' + lastFmApiKey + '&' + jsonFormat;
+    url = url.replace('Artist_Name', artist).replace('Track_Name', trackName);
+    console.log(url);
+    request(url, function(err, response, body){
+        if(err){
+            console.log(err);
+        }
+        else{
+            callback(body);
+        }
+    });
+}
+var json = {
+  test: "test"
+};
+
+parseMetadata('fas', function(err){
+    console.log(err);
+});
+
+function parseMetadata(data, callback){
+    try{
+        var track = JSON.parse(data).track;
+    }
+    catch(ex)
+    {
+        callback(ex);
+        return;
+    }
+    if(track === undefined){
+        callback('error');
+        return;
+    }
+    var album = track.album.title || ''; //if undefined -> ''
+    var date = '';
+    parseDate(track.wiki.published, function(parsedDate){
+        date = parsedDate || '';
+    });
+    var title = track.name || '';
+    var genre = track.toptags.tag[0].name || '';
+    if(genre !== ''){
+        genre = genre.charAt(0).toUpperCase() + genre.slice(1);
+    }
+    var artist = track.artist.name || '';
+    var image = track.album.image[3]['#text'];
+
+    callback(false, album, date, title, genre, artist, image);
+}
+
+function downloadImage(path, url, callback){
+    var image = fs.createWriteStream(path);
+    url = url.replace('https', 'http');
+    http.get(url, function(response) {
+        response.pipe(image)
+            .on('finish', function () {
+                console.log('finished downloading image');
+                callback();
+            })
+    });
+}
+
+function deleteImage(path){
+    console.log('path to delete', path);
+    fs.unlink(path);
+}
+
+function parseDate(date, callback){
+    var parsedDate = date.split(',')[0];
+    parsedDate = parsedDate.substring(parsedDate[2] === ' ' ? 3 : 2, parsedDate.length);
+    callback(parsedDate);
+}
 
 function InitializeDirectories(artist){
     createDirectory(songsPath);
